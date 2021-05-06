@@ -9,13 +9,13 @@ namespace pandemic{
             throw invalid_argument("You are not in city " + name_of_city.at(_city));
         }
         card.erase(_city);
-        if(board[_city] == 0){
+        if(board.disease_level[_city] == 0){
             throw invalid_argument("At " + name_of_city.at(_city) + "no have disease cubes");
         }
         if(board.is_cure(colors_of_cities.at(_city))){
-            board[_city] = 0;
+            board.disease_level[_city] = 0;
         }
-        else{board[_city]--;}
+        else{board.disease_level[_city]--;}
         return *this;
     }
 };

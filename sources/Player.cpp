@@ -90,13 +90,13 @@ namespace pandemic{
         if(city != _city){
             throw invalid_argument("You are not in city " + name_of_city.at(_city));
         }
-        if(board[_city] == 0){
+        if(board.disease_level[_city] == 0){
             throw invalid_argument("At " + name_of_city.at(_city) + " no have disease cubes");
         }
-        else if(board.is_cure(colors_of_cities.at(_city))){
-            board[_city] = 0;
+        if(board.is_cure(colors_of_cities.at(_city))){
+            board.disease_level[_city] = 0;
         }
-        else{board[_city]--;}
+        else{board.disease_level[_city]--;}
         return *this;
     }
 
