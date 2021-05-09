@@ -61,7 +61,7 @@ namespace pandemic{
 
     
 
-    inline const std::map<City, Color> colors_of_cities{
+    inline std::map<City, Color> colors_of_cities{
                 {Algiers, Black},
                 {Atlanta, {Blue}},
                 {Baghdad, {Black}},

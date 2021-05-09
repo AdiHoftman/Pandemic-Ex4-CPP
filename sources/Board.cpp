@@ -32,40 +32,22 @@ namespace pandemic{
     }
 
     void Board::remove_cures(){
-        c_black = false;
-        c_blue = false;
-        c_red = false;
-        c_yellow = false;
+        discovered_cure.clear();
     }
 
-    // bool Board::is_there_a_research_station(City city) {
-    //     return (this->research_station.count(city) != 0);
-    // }
-
+    void Board::remove_stations(){
+        this->research_station.clear();
+    }
 
     void Board::build(City city){
         this->research_station.insert(city);
     }
 
-    // Color Board::get_color(City city){
-    //     return colors_of_cities.at(city);
+    // const bool Board::is_cure(Color color) const{
+    //     return (this->discovered_cure.count(color) != 0);
     // }
-
-    bool& Board::is_cure(Color color){
-        if(color == Color::Black){return c_black;}
-        if(color == Color::Blue){return c_blue;}
-        if(color == Color::Red){return c_red;}
-        return c_yellow;
-    }
 
     void Board::set_cure(Color color){
-        if(color == Color::Black){c_black = true;}
-        if(color == Color::Blue){c_blue = true;}
-        if(color == Color::Red){c_red = true;}
-        if(color == Color::Yellow){c_yellow = true;}
+        this->discovered_cure.insert(color);
     }
-
-    // bool Board::is_cure_discoverd(City city) {
-    //     return cure[get_color(city)];
-    // }
 };

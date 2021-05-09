@@ -23,6 +23,7 @@ namespace pandemic{
             virtual Player& discover_cure(Color color);
             virtual Player& treat(City _city);
             virtual std::string role(){return role_of;}
+            void remove_cards();
         };
 
 };

@@ -18,7 +18,7 @@ namespace pandemic{
             if(count == 4) { break; }
             it = card.erase(it);
         }
-        board.is_cure(color);
+        board.set_discovered_cure(color);
         return *this;
     }
 };

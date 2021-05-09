@@ -26,7 +26,7 @@ namespace pandemic{
                 ++it;
             }
         }
-        board.set_cure(color);
+        board.set_discovered_cure(color);
         return *this;
     }
 };

@@ -15,6 +15,7 @@ namespace pandemic{
         if(connect_cities.at(_city).count(city) == 0 && connect_cities.at(city).count(_city) == 0){
             throw std::invalid_argument{"The city " + name_of_city.at(city) + " don't have a connect with " + name_of_city.at(_city)};
         }
+        if(city == _city){throw invalid_argument("illegal action: you can't drive to the city that you here at now");}
         city = _city;
         return *this;
     }
@@ -23,6 +24,7 @@ namespace pandemic{
         if(card.count(_city) == 0){
             throw invalid_argument("illegal action: you discarded the " + name_of_city.at(_city) + " card to discover a cure, so you cannot use this card.");
         }
+        if(city == _city){throw invalid_argument("illegal action: you can't fly to the city that you here at now");}
         card.erase(_city);
         city = _city;
         return *this;
@@ -32,6 +34,7 @@ namespace pandemic{
         if(card.count(city) == 0){
             throw invalid_argument("illegal action: you do not have the " + name_of_city.at(city) + " card (the card of the city you are in).");
         }
+        if(city == _city){throw invalid_argument("illegal action: you can't fly to the city that you here at now");}
         card.erase(city);
         city = _city;
         return *this;
@@ -41,11 +44,12 @@ namespace pandemic{
         if (board.get_research_station().count(city) == 0){
         throw invalid_argument(name_of_city.at(city) + " dont have a research station!");
         }
-
         if (board.get_research_station().count(_city) == 0){
         throw invalid_argument(name_of_city.at(_city) + " dont have a research station!");
         }
-
+        if(city == _city){
+            throw invalid_argument("illegal action: you can't fly to the city that you here at now");
+        }
         city = _city;
         return *this;
     }
@@ -70,7 +74,7 @@ namespace pandemic{
             }
         }
         if(cards_of_cure > counter){
-            throw std::invalid_argument{"illegal action: you only have "+std::to_string(counter)+" "+ colors.at(color) + " cards remaining " };
+            throw std::invalid_argument{"illegal action: you only have " + to_string(counter) +" " + colors.at(color) + " cards remaining " };
         }
         counter = 0;
         for(auto it = card.begin(); it != card.end(); counter++){
@@ -82,7 +86,7 @@ namespace pandemic{
                 ++it;
             }
         }
-        board.is_cure(color);
+        board.set_discovered_cure(color);
         return *this;
     }
 
@@ -93,7 +97,7 @@ namespace pandemic{
         if(board.disease_level[_city] == 0){
             throw invalid_argument("At " + name_of_city.at(_city) + " no have disease cubes");
         }
-        if(board.is_cure(colors_of_cities.at(_city))){
+        if(board.get_discovered_cure().count(colors_of_cities.at(_city)) != 0){
             board.disease_level[_city] = 0;
         }
         else{board.disease_level[_city]--;}
@@ -103,5 +107,9 @@ namespace pandemic{
     Player& Player::take_card(City _city){
         card.insert(_city);
         return *this;
+    }
+
+    void Player::remove_cards(){
+        card.clear();
     }
 };
