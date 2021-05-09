@@ -13,9 +13,7 @@ namespace pandemic{
             city = _city;
             return *this;
         }
-        else{
             return Player::fly_direct(_city);
-        }
     }
 
 };
