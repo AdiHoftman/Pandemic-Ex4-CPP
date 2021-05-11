@@ -14,8 +14,9 @@ namespace pandemic{
         }
         if(board.get_discovered_cure().count(colors_of_cities.at(city)) != 0){
             board.disease_level[_city] = 0;
+            return *this;
         }
-        else{board.disease_level[_city]--;}
+        board.disease_level[_city]--;
         return *this;
     }
 };

@@ -43,10 +43,6 @@ namespace pandemic{
         this->research_station.insert(city);
     }
 
-    // const bool Board::is_cure(Color color) const{
-    //     return (this->discovered_cure.count(color) != 0);
-    // }
-
     void Board::set_cure(Color color){
         this->discovered_cure.insert(color);
     }

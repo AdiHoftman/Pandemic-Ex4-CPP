@@ -6,10 +6,10 @@ namespace pandemic{
 
     Player& Medic::treat(City _city){
         if (city != _city) {
-        throw std::invalid_argument{"The current city is " + name_of_city.at(city) + " not " + name_of_city.at(_city) + ". Can not treat."};
+        throw std::invalid_argument("The city " + name_of_city.at(city) + " not " + name_of_city.at(_city));
         }
         if (board.disease_level[_city] == 0) {
-            throw std::invalid_argument{"There is no pollution in the current city. Can not treat."};
+            throw std::invalid_argument("There is no a cubes at " + name_of_city.at(_city));
         }
         board.disease_level[_city] = 0;
         return *this;
