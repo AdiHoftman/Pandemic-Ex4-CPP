@@ -4,6 +4,7 @@ using namespace std;
 
 namespace pandemic{
 
+    // can discover cure that he have less than 5 cards.
     Player& Scientist::discover_cure(Color color) {
     if(board.get_research_station().count(city) == 0){
         throw std::invalid_argument("There is no a research station at "+ name_of_city.at(city));

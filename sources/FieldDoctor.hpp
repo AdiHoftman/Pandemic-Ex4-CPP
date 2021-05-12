@@ -12,6 +12,6 @@ namespace pandemic{
         public:
             FieldDoctor(Board& b, City c) : Player(b, c, "FieldDoctor"){}
 
-            Player& treat(City _city) override;
+            Player& treat(City _city);
     };
 };

@@ -24,14 +24,17 @@ namespace pandemic{
             void build(City city);
             void set_cure(Color color);
 
+            // return the cities that have a research station.
             set<City> &get_research_station(){
                 return research_station;
             }
 
+            // return the cures that discovered.
             set<Color> &get_discovered_cure(){
                 return discovered_cure;
             }
 
+            // discover a cure and return the cure that discovered.
             set<Color> &set_discovered_cure(Color color){
                 discovered_cure.insert(color);
                 return discovered_cure;

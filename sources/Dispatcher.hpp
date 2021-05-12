@@ -12,7 +12,7 @@ namespace pandemic{
         public:
             Dispatcher(Board& b, City c) : Player(b, c, "Dispatcher"){}
 
-            Player& fly_direct(City _city) override;
+            Player& fly_direct(City _city);
 
     };
 

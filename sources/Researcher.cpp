@@ -6,6 +6,7 @@ const int cards_of_cure = 5;
 
 namespace pandemic{
 
+    // can discover a cure without a research statiokn at the city.
     Player& Researcher::discover_cure(Color color){
         int counter = 0;
         for(const auto& key : card){

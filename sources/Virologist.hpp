@@ -13,6 +13,6 @@ namespace pandemic{
         public:
             Virologist(Board& b, City c) : Player(b, c, "Virologist"){}
 
-            Player& treat(City _city) override;
+            Player& treat(City _city);
     };
 };

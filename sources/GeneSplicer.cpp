@@ -6,6 +6,7 @@ const int cards_of_cure = 5;
 
 namespace pandemic{
 
+    // can discover cure with 5 cards that are not the same color.
     Player& GeneSplicer::discover_cure(Color color){
         if(board.get_research_station().count(city) == 0){
         throw std::invalid_argument("There is no a research station at " + name_of_city.at(city));

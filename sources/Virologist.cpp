@@ -4,6 +4,7 @@ using namespace std;
 
 namespace pandemic{
 
+    // can treat all city with card of the city that he want to treat, without to be there.
     Player& Virologist::treat(City _city){
         if(card.count(_city) == 0 && city != _city){
             throw invalid_argument("You are not in city " + name_of_city.at(_city));
